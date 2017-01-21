@@ -11,3 +11,8 @@ def suma2(valores):
     for x in valores:
         s = s + x ** 2
     return s
+
+def promedio(valores):
+    s = suma(valores)
+    n = len(valores)
+    return float(s) / n
