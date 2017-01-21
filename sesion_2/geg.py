@@ -38,3 +38,17 @@ def linspace(a, b, n):
         l.append(a + i * d)
 
     return l
+
+def bloque(ws, col, a, b):
+    l = []
+
+    for i in range(a, b + 1):
+        c = ws["%s%d" %(col, i)]
+        l.append(c.value if c.value != None else 0)
+
+    return l
+
+def inyectar(ws, col, row, values):
+    n = len(values)
+    for i in range(row, row + n):
+        ws["%s%d" %(col, i)] = values[i - row]
