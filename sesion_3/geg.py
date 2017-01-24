@@ -69,3 +69,20 @@ def load_data(ws, ini_cell, fin_cell, labels):
         datos.append(p)
 
     return datos
+
+from openpyxl.utils import column_index_from_string
+
+def get_labels(ws, ini_cell):
+    cell = ws[ini_cell]
+
+    labels = []
+
+    while cell.value != None:
+        labels.append(cell.value)
+
+        cell = ws.cell(
+            row = cell.row,
+            column = column_index_from_string(cell.column) + 1
+        )
+
+    return labels

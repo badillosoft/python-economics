@@ -11,7 +11,7 @@ datos = load_data(ws, "A3", "E10",
 datos2 = []
 
 for persona in datos:
-    if persona["Edad"] >= 70:
+    if persona["Categoria"] != "Rojo":
         datos2.append(persona)
 
 print datos2
