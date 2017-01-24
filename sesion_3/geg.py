@@ -53,7 +53,7 @@ def inyectar(ws, col, row, values):
     for i in range(row, row + n):
         ws["%s%d" %(col, i)] = values[i - row]
 
-def import_excel(ws, ini_cell, fin_cell):
+def load_data(ws, ini_cell, fin_cell, labels):
     key_range = "%s:%s" %(ini_cell, fin_cell)
     
     cells = ws[key_range]
@@ -61,13 +61,10 @@ def import_excel(ws, ini_cell, fin_cell):
     datos = []
 
     for row in cells:
-        p = {
-            "Nombre": row[0].value,
-            "Edad": row[1].value,
-            "Sexo": row[2].value,
-            "Categoria": row[3].value,
-            "Salario": row[4].value
-        }
+        p = {}
+
+        for i in range(0, len(row)):
+            p[labels[i]] = row[i].value
 
         datos.append(p)
 
