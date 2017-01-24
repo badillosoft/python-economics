@@ -86,3 +86,29 @@ def get_labels(ws, ini_cell):
         )
 
     return labels
+
+def get_max_column(ws, ini_cell):
+    cell = ws[ini_cell]
+
+    while cell.value != None:
+        valid_cell = cell
+
+        cell = ws.cell(
+            row = cell.row,
+            column = column_index_from_string(cell.column) + 1
+        )
+
+    return valid_cell.column + str(valid_cell.row)
+
+def get_max_row(ws, ini_cell):
+    cell = ws[ini_cell]
+
+    while cell.value != None:
+        valid_cell = cell
+
+        cell = ws.cell(
+            row = cell.row + 1,
+            column = column_index_from_string(cell.column)
+        )
+
+    return valid_cell.column + str(valid_cell.row)
