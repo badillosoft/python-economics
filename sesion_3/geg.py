@@ -112,3 +112,25 @@ def get_max_row(ws, ini_cell):
         )
 
     return valid_cell.column + str(valid_cell.row)
+
+def automatic_load_data(ws, ini_cell):
+    fin_cell = get_max_column(ws, ini_cell)
+
+    cells = ws[ini_cell : fin_cell]
+
+    labels = []
+
+    for row in cells:
+        for cell in row:
+            labels.append(cell.value)
+
+    cell = ws.cell(
+        row = ws[ini_cell].row + 1,
+        column = column_index_from_string(ws[ini_cell].column)
+    )
+
+    ini_cell = cell.column + str(cell.row)
+    
+    fin_cell = get_max_row(ws, fin_cell)
+
+    return load_data(ws, ini_cell, fin_cell, labels)
