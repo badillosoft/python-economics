@@ -9,3 +9,13 @@ def load_mat_clasica(cells):
 
 def load_mat(cells):
     return [([cell.value for cell in xrow]) for xrow in cells]
+
+def data_map(data, fn):
+    aux = []
+
+    for x in data:
+        y = fn(x)
+        if y != None:
+            aux.append(y)
+    
+    return aux
