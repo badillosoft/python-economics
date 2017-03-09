@@ -23,3 +23,25 @@ obtener los resultados correspondientes
 
 > `b = [3, 4, 5, 6, 4]` (hint: `x >= 3 and x <= 6`)
 
+## Tarea 2
+
+Utilizar `data_max` o `data_min` para resolver los siguientes
+problemas:
+
+### Problema 1
+
+Encontrar la fruta de menor peso de la siguiente matriz
+de frutas:
+
+~~~py
+pesos = [
+    [0.5, 2.6, 9.8],
+    [5.5, 3.6, 2.8],
+    [2.5, 1.6, 6.8],
+    [1.5, 3.6, 0.8],
+]
+~~~
+
+> Nota: las frutas son `Manzana, Pera, Mango` en ese orden
+
+> Resultado: `["Manzana", "Mango", "Pera", "Mango"]`
