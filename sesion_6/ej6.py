@@ -19,7 +19,7 @@ geg.data_cat(data, "Cat_Ingresos", {
     "Alto": lambda dic: dic["Ingresos"] > 12000
 })
 
-fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3)
+fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, ncols=1)
 
 geg.plot_pie(ax1, data, "Cat_Edad")
 geg.plot_pie(ax2, data, "Cat_Ingresos")

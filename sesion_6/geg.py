@@ -70,3 +70,33 @@ def data_cat(data, label, funs):
                 value = cat
         dic[label] = value
     return data 
+
+from openpyxl import load_workbook, Workbook
+from openpyxl.utils import column_index_from_string
+
+def save_data(data, labels, filename, sheet_name, ini_cell):
+    try:
+        wb = load_workbook(filename)
+    except:
+        wb = Workbook()
+
+    if wb.sheetnames.count(sheet_name) > 0:
+        ws = wb[sheet_name]
+    else:
+        ws = wb.create_sheet(title=sheet_name)
+    
+    for j in range(len(labels)):
+        cell = ws.cell(
+            row = ws[ini_cell].row,
+            column = column_index_from_string(ws[ini_cell].column) + j
+        )
+        cell.value = labels[j]
+    for i in range(len(data)):
+        dic = data[i]
+        for j in range(len(labels)):
+            cell = ws.cell(
+                row = ws[ini_cell].row + 1 + i,
+                column = column_index_from_string(ws[ini_cell].column) + j
+            )
+            cell.value = dic[labels[j]]
+    wb.save(filename)
