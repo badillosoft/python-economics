@@ -53,5 +53,20 @@ def plot_pie(ax, data, label):
 
     labels, sizes = zip(*[(k, cats[k]) for k in cats])
 
-    ax.pie(sizes, labels=labels)
+    ax.pie(sizes, labels=labels, autopct="%.0f%%")
+    ax.axis('equal')
 
+def data_append(data, label, fn):
+    for dic in data:
+        dic[label] = fn(dic)
+    return data
+
+def data_cat(data, label, funs):
+    for dic in data:
+        value = "None"
+        for cat in funs:
+            fn = funs[cat]
+            if fn(dic):
+                value = cat
+        dic[label] = value
+    return data 
