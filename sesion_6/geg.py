@@ -100,3 +100,9 @@ def save_data(data, labels, filename, sheet_name, ini_cell):
             )
             cell.value = dic[labels[j]]
     wb.save(filename)
+
+def data_column(data, column):
+    return [dic[column] for dic in data]
+
+def data_row(data, index, labels):
+    return zip(*[(k, data[index][k]) for k in labels])
