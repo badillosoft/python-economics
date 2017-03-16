@@ -106,3 +106,19 @@ def data_column(data, column):
 
 def data_row(data, index, labels):
     return zip(*[(k, data[index][k]) for k in labels])
+
+def plot_hist(ax1, nbins, xmin, xmax, data, label):
+    data = data_column(data, label)
+    ax1.hist(data, bins=nbins, range=(xmin, xmax))
+
+def data_transform(data, ilabel, olabel):
+    i = 1
+    cats = {}
+    for dic in data:
+        if not cats.has_key(dic[ilabel]):
+            cats[dic[ilabel]] = i
+            i += 1
+    
+    data_append(data, olabel, lambda dic: cats[dic[ilabel]])
+
+    return cats
