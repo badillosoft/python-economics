@@ -111,7 +111,7 @@ def plot_hist(ax1, nbins, xmin, xmax, data, label):
     data = data_column(data, label)
     ax1.hist(data, bins=nbins, range=(xmin, xmax))
 
-def data_transform(data, ilabel, olabel):
+def data_encode(data, ilabel, olabel):
     i = 1
     cats = {}
     for dic in data:
