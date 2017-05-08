@@ -1,5 +1,9 @@
 # python-economics
 
+# Enlaces de Interés
+
+W3Schools https://www.w3schools.com/
+
 ## Tarea 1
 
 Convertir los siguientes arreglos mediante `geg.data_map` para
