@@ -1,5 +1,7 @@
 # python-economics
 
+Alan Badillo Salas badillo.soft@hotmail.com
+
 # Enlaces de Interés
 
 W3Schools https://www.w3schools.com/
